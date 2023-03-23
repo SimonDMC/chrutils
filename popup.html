@@ -3,17 +3,8 @@
 <body>
     <label for="sandbox">Enable Sandbox Mode</label>
     <input type="checkbox" name="sandbox" id="sandbox">
-
-    <script>
-        // get the checkbox
-        const checkBox = document.getElementById("sandbox");
-
-        // add event listener
-        checkBox.addEventListener("change", (event) => {
-            // send message to background script
-            chrome.runtime.sendMessage({ sandbox: event.target.checked });
-        });
-    </script>
 </body>
+
+<script src="popup.js"></script>
 
 </html>
