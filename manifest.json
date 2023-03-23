@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Chrutils",
+    "description": "Personal utility extension",
+    "version": "0.1",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["activeTab", "scripting"]
+}
