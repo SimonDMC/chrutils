@@ -13,5 +13,5 @@
             "js": ["chrutils.js"]
         }
     ],
-    "permissions": ["tabs"]
+    "permissions": ["tabs", "storage"]
 }
