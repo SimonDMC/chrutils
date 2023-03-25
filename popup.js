@@ -14,6 +14,11 @@ const toggles = [
         enabledLabel: "eEnabled",
         toggleLabel: "toggleE",
     },
+    {
+        element: document.getElementById("mmb-shows-passwords"),
+        enabledLabel: "mmbShowsPasswordsEnabled",
+        toggleLabel: "toggleMMBShowsPasswords",
+    },
 ];
 
 // load states

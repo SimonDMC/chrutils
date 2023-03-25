@@ -17,6 +17,9 @@ chrome.storage.sync.get("sharpCornersEnabled", (data) => {
 chrome.storage.sync.get("eEnabled", (data) => {
     toggleE(data.eEnabled);
 });
+chrome.storage.sync.get("mmbShowsPasswordsEnabled", (data) => {
+    toggleMMBShowsPasswords(data.mmbShowsPasswordsEnabled);
+});
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     // listen to toggle messages
@@ -28,6 +31,9 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     }
     if (message.type === "toggleE") {
         toggleE(message.enabled);
+    }
+    if (message.type === "toggleMMBShowsPasswords") {
+        toggleMMBShowsPasswords(message.enabled);
     }
 });
 
@@ -42,6 +48,9 @@ document.addEventListener("visibilitychange", function () {
         });
         chrome.storage.sync.get("eEnabled", (data) => {
             toggleE(data.eEnabled);
+        });
+        chrome.storage.sync.get("mmbShowsPasswordsEnabled", (data) => {
+            toggleMMBShowsPasswords(data.mmbShowsPasswordsEnabled);
         });
     }
 });
@@ -99,5 +108,31 @@ function toggleE(enabled) {
         document.body.addEventListener("keydown", eHandler);
     } else {
         document.body.removeEventListener("keydown", eHandler);
+    }
+}
+
+function mmbHandler(event) {
+    if (event.button === 1) {
+        // get element under mouse
+        const element = document.elementFromPoint(mouse.x, mouse.y);
+
+        // toggle password visibility
+        if (element.type === "password") {
+            element.type = "text";
+            element.classList.add("chrutils-password-visible");
+            event.preventDefault();
+        } else if (element.classList.contains("chrutils-password-visible")) {
+            element.type = "password";
+            element.classList.remove("chrutils-password-visible");
+            event.preventDefault();
+        }
+    }
+}
+
+function toggleMMBShowsPasswords(enabled) {
+    if (enabled) {
+        document.body.addEventListener("mousedown", mmbHandler);
+    } else {
+        document.body.removeEventListener("mousedown", mmbHandler);
     }
 }
