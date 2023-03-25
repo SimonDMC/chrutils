@@ -13,11 +13,5 @@
             "js": ["chrutils.js"]
         }
     ],
-    "permissions": ["tabs", "storage", "scripting"],
-    "web_accessible_resources": [
-        {
-            "matches": ["<all_urls>"],
-            "resources": ["chrutils.css"]
-        }
-    ]
+    "permissions": ["tabs", "storage", "scripting"]
 }

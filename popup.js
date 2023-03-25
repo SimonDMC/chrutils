@@ -1,15 +1,18 @@
 const toggles = [
     {
-        label: "sandbox",
         element: document.getElementById("sandbox"),
         enabledLabel: "sandboxEnabled",
         toggleLabel: "toggleSandbox",
     },
     {
-        label: "sharp-corners",
         element: document.getElementById("sharp-corners"),
         enabledLabel: "sharpCornersEnabled",
         toggleLabel: "toggleSharpCorners",
+    },
+    {
+        element: document.getElementById("e-enable"),
+        enabledLabel: "eEnabled",
+        toggleLabel: "toggleE",
     },
 ];
 
